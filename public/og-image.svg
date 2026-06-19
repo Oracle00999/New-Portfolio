@@ -1,0 +1,15 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#FBFAF7"/>
+  <rect x="56" y="56" width="1088" height="518" rx="28" stroke="#D9D9D4" stroke-width="2"/>
+  <circle cx="994" cy="140" r="54" stroke="#11110F" stroke-width="3"/>
+  <circle cx="994" cy="140" r="36" stroke="#D9D9D4" stroke-width="2"/>
+  <circle cx="1032" cy="92" r="8" fill="#11110F"/>
+  <text x="960" y="153" fill="#11110F" font-family="Space Grotesk, Inter, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="-1">AN</text>
+  <circle cx="86" cy="102" r="7" fill="#1F8F4D"/>
+  <text x="106" y="109" fill="#66645F" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2">AVAILABLE TO WORK</text>
+  <text x="84" y="274" fill="#11110F" font-family="Space Grotesk, Inter, Arial, sans-serif" font-size="88" font-weight="700" letter-spacing="-4">Anthony Nwazota</text>
+  <text x="86" y="354" fill="#11110F" font-family="Space Grotesk, Inter, Arial, sans-serif" font-size="54" font-weight="700" letter-spacing="-2">Full-Stack Developer</text>
+  <text x="88" y="430" fill="#34332F" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="500">Reliable interfaces, APIs, dashboards, and useful web products.</text>
+  <line x1="88" y1="498" x2="486" y2="498" stroke="#11110F" stroke-width="3"/>
+  <text x="88" y="540" fill="#66645F" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">React · Node.js · Tailwind CSS · Framer Motion</text>
+</svg>
