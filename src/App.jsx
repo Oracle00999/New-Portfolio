@@ -61,12 +61,12 @@ const works = [
 ];
 
 const buttonClass =
-  "inline-flex min-h-11 items-center justify-center rounded-full border border-ink px-6 text-[0.95rem] font-semibold leading-none no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_10px_22px_rgba(17,17,15,0.1)] active:translate-y-0 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink";
+  "inline-flex min-h-11 items-center justify-center rounded-full border border-current px-6 text-[0.95rem] font-semibold leading-none no-underline transition duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-paper";
 
-const primaryButtonClass = `${buttonClass} bg-ink text-paper hover:bg-[#2a2925] hover:text-paper`;
-const secondaryButtonClass = `${buttonClass} bg-transparent text-ink hover:text-ink`;
+const primaryButtonClass = `${buttonClass} bg-transparent text-paper hover:bg-paper/10 hover:text-paper`;
+const secondaryButtonClass = `${buttonClass} bg-transparent text-paper hover:bg-paper/10 hover:text-paper`;
 const contactIconClass =
-  "group relative inline-flex size-14 items-center justify-center rounded-full border border-ink text-xl text-ink no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-ink hover:text-paper hover:shadow-[0_10px_22px_rgba(17,17,15,0.1)] active:translate-y-0 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink";
+  "group relative inline-flex size-14 items-center justify-center rounded-full border border-current text-xl no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-paper/10 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-paper";
 
 const contactLinks = [
   {
@@ -156,7 +156,7 @@ function App() {
       <AnimatePresence>
         {isLoading ? (
           <motion.div
-            className="fixed inset-0 z-50 grid place-items-center bg-paper text-ink"
+            className="fixed inset-0 z-50 grid place-items-center bg-ink text-paper"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.45, ease: easeOut }}
@@ -168,15 +168,15 @@ function App() {
               exit={{ opacity: 0, y: -10, scale: 0.98 }}
               transition={{ duration: 0.55, ease: easeOut }}
             >
-              <div className="relative grid size-20 place-items-center rounded-full border border-ink font-display text-2xl font-bold leading-none text-ink">
-                <span className="absolute inset-2 rounded-full border border-line" />
-                <span className="absolute right-3 top-0 size-2.5 rounded-full bg-ink" />
+              <div className="relative grid size-20 place-items-center rounded-full border border-paper font-display text-2xl font-bold leading-none text-paper">
+                <span className="absolute inset-2 rounded-full border border-paper/25" />
+                <span className="absolute right-3 top-0 size-2.5 rounded-full bg-paper" />
                 <span className="relative z-10">
                   A<span className="-ml-0.5 italic">N</span>
                 </span>
               </div>
               <motion.div
-                className="h-px w-40 origin-left bg-ink"
+                className="h-px w-40 origin-left bg-paper"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.75, ease: easeOut }}
@@ -190,13 +190,26 @@ function App() {
       </AnimatePresence>
 
       <motion.div
-        className="fixed left-0 top-0 z-40 h-1 w-full origin-left bg-ink"
+        className="fixed left-0 top-0 z-40 h-1 w-full origin-left bg-paper"
         style={{ scaleX: scrollProgress }}
         aria-hidden="true"
       />
 
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-ink">
+        <div className="absolute -left-28 top-36 size-80 rounded-full border border-paper/10" />
+        <div className="absolute -left-12 top-52 size-44 rounded-full border border-paper/15" />
+        <div className="absolute left-[8%] bottom-24 size-52 rounded-full border border-paper/8 max-sm:-left-20" />
+        <div className="absolute left-[18%] bottom-40 size-24 rounded-full border border-paper/10" />
+        <div className="absolute right-10 top-28 size-56 rounded-full border border-paper/15 max-sm:-right-20 max-sm:size-44" />
+        <div className="absolute right-24 top-44 size-24 rounded-full border border-paper/20 max-sm:right-4 max-sm:top-40" />
+        <div className="absolute bottom-32 right-[-70px] size-72 rounded-full border border-paper/10 max-sm:size-52" />
+        <div className="absolute right-[24%] top-[48%] size-36 rounded-full border border-paper/8" />
+        <div className="absolute left-[48%] top-16 h-[70vh] w-px bg-paper/10" />
+        <div className="absolute inset-x-0 top-[42%] h-px bg-paper/5" />
+      </div>
+
       <motion.main
-        className="mx-auto w-[min(calc(100%_-_32px),1060px)] pb-14 pt-[72px] text-ink max-sm:w-[min(calc(100%_-_24px),1060px)] max-sm:pt-10"
+        className="portfolio-split-content relative z-10 mx-auto w-[min(calc(100%_-_32px),1060px)] pb-14 pt-[72px] max-sm:w-[min(calc(100%_-_24px),1060px)] max-sm:pt-10"
         variants={prefersReducedMotion ? undefined : pageVariants}
         initial={prefersReducedMotion ? false : "hidden"}
         animate={isLoading ? "hidden" : "show"}
@@ -214,11 +227,11 @@ function App() {
           </div>
 
           <div
-            className="relative grid size-[58px] place-items-center rounded-full border border-ink font-display text-[1.34rem] font-bold leading-none tracking-[-0.01em] text-ink max-sm:size-[52px]"
+            className="relative grid size-[58px] place-items-center rounded-full border border-current bg-transparent font-display text-[1.34rem] font-bold leading-none tracking-[-0.01em] max-sm:size-[52px]"
             aria-hidden="true"
           >
-            <span className="absolute inset-[7px] rounded-full border border-line" />
-            <span className="absolute right-[7px] top-[-3px] size-2 rounded-full bg-ink" />
+            <span className="absolute inset-[7px] rounded-full border border-current opacity-25" />
+            <span className="absolute right-[7px] top-[-3px] size-2 rounded-full bg-current" />
             <span className="relative z-10">
               A<span className="-ml-0.5 italic">N</span>
             </span>
@@ -246,7 +259,7 @@ function App() {
             small details that make software feel good to use.
           </p>
           <div
-            className="mt-[38px] flex flex-wrap gap-3"
+            className="mb-12 mt-[38px] flex flex-wrap gap-3"
             aria-label="Primary links"
           >
             <a className={primaryButtonClass} href="#works">
@@ -357,7 +370,7 @@ function App() {
           <div className="flex flex-wrap gap-3 border-t border-ink pt-8">
             {techStack.map(({ name, Icon }, index) => (
               <motion.span
-                className="inline-flex min-h-12 items-center gap-3 rounded-full border border-line bg-paper py-1.5 pl-2 pr-5 font-body text-sm font-semibold text-ink transition duration-200 hover:-translate-y-0.5 hover:border-ink hover:shadow-[0_10px_22px_rgba(17,17,15,0.08)]"
+                className="inline-flex min-h-12 items-center gap-3 rounded-full border border-current bg-transparent py-1.5 pl-2 pr-5 font-body text-sm font-semibold transition duration-200 hover:-translate-y-0.5"
                 key={name}
                 initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
                 whileInView={
@@ -370,8 +383,11 @@ function App() {
                 }}
                 viewport={{ once: true, amount: 0.5 }}
               >
-                <span className="grid size-9 place-items-center rounded-full border border-line bg-white text-lg text-ink">
-                  <Icon aria-hidden="true" size={name === "REST APIs" ? 18 : undefined} />
+                <span className="grid size-9 place-items-center rounded-full border border-current bg-transparent text-lg">
+                  <Icon
+                    aria-hidden="true"
+                    size={name === "REST APIs" ? 18 : undefined}
+                  />
                 </span>
                 {name}
               </motion.span>
@@ -450,7 +466,7 @@ function App() {
                   aria-hidden="true"
                   size={label === "Email" ? 21 : undefined}
                 />
-                <span className="pointer-events-none absolute left-1/2 top-[calc(100%+10px)] -translate-x-1/2 rounded-full border border-line bg-paper px-3 py-1 text-xs font-semibold text-muted opacity-0 shadow-[0_8px_18px_rgba(17,17,15,0.08)] transition duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
+                <span className="pointer-events-none absolute left-1/2 top-[calc(100%+10px)] -translate-x-1/2 rounded-full border border-current bg-ink px-3 py-1 text-xs font-semibold opacity-0 transition duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
                   {label}
                 </span>
               </a>
@@ -471,9 +487,9 @@ function App() {
           transition={{ duration: 0.55, ease: easeOut }}
           viewport={{ once: true, amount: 0.5 }}
         >
-          <div className="relative grid size-10 place-items-center rounded-full border border-ink font-display text-base font-bold leading-none tracking-[-0.01em] text-ink">
-            <span className="absolute inset-1.5 rounded-full border border-line" />
-            <span className="absolute right-1.5 top-[-2px] size-1.5 rounded-full bg-ink" />
+          <div className="relative grid size-10 place-items-center rounded-full border border-current bg-transparent font-display text-base font-bold leading-none tracking-[-0.01em]">
+            <span className="absolute inset-1.5 rounded-full border border-current opacity-25" />
+            <span className="absolute right-1.5 top-[-2px] size-1.5 rounded-full bg-current" />
             <span className="relative z-10">
               A<span className="-ml-0.5 italic">N</span>
             </span>
